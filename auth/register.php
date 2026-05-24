@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
     $role = $_POST['role'] ?? '';
-    $access_password = $_POST['access_password'] ?? '';
+    $access_password = trim($_POST['access_password'] ?? '');
 
     if ($username === '' || $password === '' || $role === '' || $access_password === '') {
         $error = 'Complete all fields before creating the account.';
