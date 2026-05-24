@@ -35,11 +35,17 @@ A web-based Apartment Management System built with PHP and MySQL featuring tenan
 
 1. Move the project to XAMPP `htdocs`
 2. Open phpMyAdmin
-3. Create a database (e.g. `apartment_system`)
+3. Create a database named `arnaut`
 4. Import `apartment_mgmt.sql`
 5. Start Apache and MySQL
 6. Open:
-   http://localhost/apartment-management-system
+   http://localhost/APARTMENT_SYSTEM
+
+## Demo Login
+
+- Username: `admin`
+- Password: `admin123`
+- Registration access password: `arnaut`
 
 ## Email Configuration
 Update your SMTP credentials in the mailer file before using:
