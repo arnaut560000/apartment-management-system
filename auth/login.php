@@ -8,11 +8,15 @@ if (isset($_SESSION['user_id'])) {
 }
 
 $error = '';
-$username = '';
+$demoUsername = 'admin';
+$demoPassword = 'admin123';
+$username = $demoUsername;
+$passwordValue = $demoPassword;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
+    $passwordValue = '';
 
     if ($username === '' || $password === '') {
         $error = 'Enter both your username and password.';
@@ -60,7 +64,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="auth-header">
           <div class="brand-tag"><i class='bx bxs-building-house'></i> Apartment Management System</div>
           <h1>Login</h1>
-          <p class="lead">Sign in to continue.</p>
+          <p class="lead">Demo access is ready to use.</p>
+        </div>
+
+        <div class="demo-box">
+          <span>Portfolio demo account</span>
+          <strong><?= htmlspecialchars($demoUsername) ?> / <?= htmlspecialchars($demoPassword) ?></strong>
         </div>
 
         <?php if ($error): ?>
@@ -76,6 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               name="username"
               placeholder="Enter your username"
               value="<?= htmlspecialchars($username) ?>"
+              autocomplete="username"
               required
             >
             <i class='bx bxs-user'></i>
@@ -90,6 +100,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               id="password"
               name="password"
               placeholder="Enter your password"
+              value="<?= htmlspecialchars($passwordValue) ?>"
+              autocomplete="current-password"
               required
             >
             <i class='bx bxs-lock-alt'></i>
@@ -104,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <div class="action-group">
-          <button type="submit" class="btn">Login</button>
+          <button type="submit" class="btn">Enter Demo</button>
           <a href="register.php" class="btn-secondary">Create New User</a>
         </div>
       </form>
