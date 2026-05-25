@@ -3,11 +3,7 @@ require 'config/auth.php';
 require_login();
 require 'config/db.php';
 
-function countRows(mysqli $conn, string $sql): int
-{
-    $result = $conn->query($sql);
-    return ($result && $row = $result->fetch_assoc()) ? (int) $row['count'] : 0;
-}
+
 
 function formatPeso(float $amount): string
 {
